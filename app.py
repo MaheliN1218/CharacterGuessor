@@ -137,3 +137,21 @@ def update_beliefs(probabilities: np.ndarray, matrix: np.ndarray, question_idx: 
     total = np.sum(posterior)
     return posterior / total if total > 0 else probabilities
 
+
+def handling_same_category_features(session: GameSession, answered_feature: str, weight: float):
+    if weight < 0.8:
+        return
+
+    for _, members in MUTUALLY_EXCLUSIVE_CATEGORIES.items():
+        if answered_feature in members:
+            similars = [f for f in members if f != answered_feature]
+            for similar in similars:
+                if similar in dataset.features:
+                    sim_idx = dataset.features.index(similar)
+                    session.asked_indices.add(sim_idx)
+                    session.probabilities = update_beliefs(session.probabilities,
+                        dataset.matrix,
+                        sim_idx,
+                        answer_weight=0.0,
+                    )
+
