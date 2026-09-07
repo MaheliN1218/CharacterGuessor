@@ -70,3 +70,30 @@ MUTUALLY_EXCLUSIVE_CATEGORIES = {
     "eye_color": ["eyes_blue", "eyes_red"],
     "species_origin": ["is_human", "is_mutant", "is_alien_or_god", "is_cyborg_or_tech"],
 }
+
+
+
+class DatasetManager:
+    def __init__(self, path: str):
+        self.path = path
+        self.load()
+
+    def load(self):
+        if not os.path.exists(self.path) or os.path.getsize(self.path) == 0:
+            raise FileNotFoundError(f"'{self.path}' is missing or empty. Please run generate_csv.py first.")
+        self.df = pd.read_csv(self.path)
+        self.names = self.df["name"].values
+        self.features = [c for c in self.df.columns if c != "name"]
+        self.matrix = self.df[self.features].astype(float).values
+
+    def add_character(self, name: str, feature_dict: Dict[str, float]):
+        new_row = {"name": name}
+        for f in self.features:
+            new_row[f] = feature_dict.get(f, 0.5)
+        new_df = pd.DataFrame([new_row])
+        self.df = pd.concat([self.df, new_df], ignore_index=True).drop_duplicates(subset=["name"])
+        self.df.to_csv(self.path, index=False)
+        self.load()
+
+
+dataset = DatasetManager(CSV_PATH)
