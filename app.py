@@ -97,3 +97,43 @@ class DatasetManager:
 
 
 dataset = DatasetManager(CSV_PATH)
+
+class GameSession:
+    def __init__(self):
+        self.num_characters = len(dataset.names)
+        self.probabilities = np.ones(self.num_characters, dtype=float) / self.num_characters
+        self.asked_indices = set()
+        self.current_q_idx: Optional[int] = None
+        self.question_count = 0
+        self.history = []
+        self.confidence_threshold = 0.65
+        self.max_turns = 20
+
+
+sessions: Dict[str, GameSession] = {}
+
+
+def select_best_question(matrix: np.ndarray, probabilities: np.ndarray, asked_indices: set) -> Optional[int]:
+    best_idx = None
+    min_dist = float("inf")
+    for q_idx in range(matrix.shape[1]):
+        if q_idx in asked_indices:
+            continue
+        p_yes = np.sum(probabilities * matrix[:, q_idx])
+        dist = abs(p_yes - 0.5)
+        if dist < min_dist:
+            min_dist = dist
+            best_idx = q_idx
+    return best_idx
+
+
+def update_beliefs(probabilities: np.ndarray, matrix: np.ndarray, question_idx: int, answer_weight: float) -> np.ndarray:
+    if answer_weight == 0.5:
+        return probabilities
+    features = matrix[:, question_idx]
+    likelihood = 1.0 - abs(features - answer_weight)
+    likelihood = np.clip(likelihood, 0.05, 0.95)
+    posterior = probabilities * likelihood
+    total = np.sum(posterior)
+    return posterior / total if total > 0 else probabilities
+
