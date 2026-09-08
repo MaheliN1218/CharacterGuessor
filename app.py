@@ -191,4 +191,125 @@ def start_game():
         "question_text": f"Is your character {DISPLAY_NAMES.get(feat_name, feat_name)}?",
         "total_characters": session.num_characters,
     }
+@app.post("/answer")
+def submit_answer(req: AnswerRequest):
+    if req.session_id not in sessions:
+        raise HTTPException(status_code=404, detail="Session expired.")
+
+    session = sessions[req.session_id]
+    weight = CHOICE_WEIGHTS.get(req.choice, 0.5)
+
+    last_q_idx = session.current_q_idx
+    feat_name = dataset.features[last_q_idx]
+    session.history.append((feat_name, weight))
+
+    session.probabilities = update_beliefs(session.probabilities, dataset.matrix, last_q_idx, weight)
+    handling_same_category_features(session, feat_name, weight)
+
+    leader_idx = int(np.argmax(session.probabilities))
+    leader_conf = float(session.probabilities[leader_idx])
+    leader_name = str(dataset.names[leader_idx])
+
+    if leader_conf >= session.confidence_threshold or session.question_count >= session.max_turns:
+        return {
+            "is_guess": True,
+            "name": leader_name,
+            "confidence": round(leader_conf * 100, 1),
+            "question_number": session.question_count,
+        }
+
+    q_idx = select_best_question(dataset.matrix, session.probabilities, session.asked_indices)
+    if q_idx is None:
+        return {
+            "is_guess": True,
+            "name": leader_name,
+            "confidence": round(leader_conf * 100, 1),
+            "question_number": session.question_count,
+        }
+
+    session.asked_indices.add(q_idx)
+    session.current_q_idx = q_idx
+    session.question_count += 1
+    next_feat = dataset.features[q_idx]
+
+    return {
+        "is_guess": False,
+        "question_number": session.question_count,
+        "feature": next_feat,
+        "question_text": f"Is your character {DISPLAY_NAMES.get(next_feat, next_feat)}?",
+        "top_candidate": leader_name,
+        "top_confidence": round(leader_conf * 100, 1),
+    }
+
+
+@app.post("/reject-guess")
+def reject_guess(req: RejectGuessRequest):
+    if req.session_id not in sessions:
+        raise HTTPException(status_code=404, detail="Session not found.")
+
+    session = sessions[req.session_id]
+    leader_idx = int(np.argmax(session.probabilities))
+
+    session.probabilities[leader_idx] = 0.0
+    total = np.sum(session.probabilities)
+    if total > 0:
+        session.probabilities /= total
+
+    q_idx = select_best_question(dataset.matrix, session.probabilities, session.asked_indices)
+    if q_idx is None:
+        next_leader = int(np.argmax(session.probabilities))
+        return {
+            "is_guess": True,
+            "name": str(dataset.names[next_leader]),
+            "confidence": round(session.probabilities[next_leader] * 100, 1),
+            "question_number": session.question_count,
+        }
+
+    session.asked_indices.add(q_idx)
+    session.current_q_idx = q_idx
+    session.question_count += 1
+    next_feat = dataset.features[q_idx]
+
+    return {
+        "is_guess": False,
+        "question_number": session.question_count,
+        "feature": next_feat,
+        "question_text": f"Is your character {DISPLAY_NAMES.get(next_feat, next_feat)}?",
+    }
+
+
+@app.post("/learn")
+def teach_engine(req: LearnRequest):
+    if req.session_id not in sessions:
+        raise HTTPException(status_code=404, detail="Session not found.")
+
+    session = sessions[req.session_id]
+    features_dict = {}
+
+    for feat, weight in session.history:
+        if weight >= 0.8:
+            features_dict[feat] = 1.0
+        elif weight <= 0.2:
+            features_dict[feat] = 0.0
+
+    dataset.add_character(req.correct_name.strip(), features_dict)
+    del sessions[req.session_id]
+
+    return {
+        "message": f"Successfully incorporated '{req.correct_name}' into character repository.",
+        "new_pool_size": len(dataset.names),
+    }
+
+
+if os.path.exists("static"):
+    app.mount("/static", StaticFiles(directory="static"), name="static")
+
+
+@app.get("/")
+def serve_ui():
+    if os.path.exists("static/index.html"):
+        return FileResponse("static/index.html")
+    elif os.path.exists("index.html"):
+        return FileResponse("index.html")
+    raise HTTPException(status_code=404, detail="index.html not found.")
 
