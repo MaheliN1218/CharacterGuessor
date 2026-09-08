@@ -155,6 +155,7 @@ def handling_same_category_features(session: GameSession, answered_feature: str,
                         answer_weight=0.0,
                     )
 
+
 class AnswerRequest(BaseModel):
     session_id: str
     choice: int
