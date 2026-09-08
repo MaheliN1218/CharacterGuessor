@@ -169,3 +169,26 @@ class LearnRequest(BaseModel):
     session_id: str
     correct_name: str
 
+@app.post("/start")
+def start_game():
+    session_id = str(uuid.uuid4())
+    sessions[session_id] = GameSession()
+    session = sessions[session_id]
+
+    q_idx = select_best_question(dataset.matrix, session.probabilities, session.asked_indices)
+    if q_idx is None:
+        raise HTTPException(status_code=500, detail="Cannot initialize question tree.")
+
+    session.asked_indices.add(q_idx)
+    session.current_q_idx = q_idx
+    session.question_count += 1
+    feat_name = dataset.features[q_idx]
+
+    return {
+        "session_id": session_id,
+        "question_number": session.question_count,
+        "feature": feat_name,
+        "question_text": f"Is your character {DISPLAY_NAMES.get(feat_name, feat_name)}?",
+        "total_characters": session.num_characters,
+    }
+
