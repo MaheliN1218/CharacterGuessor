@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Gueeser</title>
+</head>
+<style>
+    body{
+        background-color: #282D3F;
+        color: white;
+        text-align: center;
+    }
+    button{
+        color: white;
+        background-color: #DD969A;
+        border: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        border-radius: 15px;
+    }
+      .question-box {
+      margin: 1.75rem 0;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .btn-group { display: flex; flex-direction: column; gap: 0.65rem; }
+
+    button.choice-btn {
+
+      color: white;
+      background-color:#C7383C;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+    }
+    .hidden { display: none !important; }
+</style>
+
+<body>
+<div id="start-view">
+<h1>Character guesser</h1>
+<button id="start" onclick="startGame()"><b>Start!</b></button>
+</div>
+   <div id="play-view" class="hidden">
+    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-sub);">
+      <span id="q-counter">Question 1</span>
+    </div>
+    <div class="question-box" id="question-text">Loading question...</div>
+    <div class="btn-group">
+      <button class="choice-btn" onclick="sendChoice(1)"><span>Yes</span><span>[1]</span></button>
+      <button class="choice-btn" onclick="sendChoice(2)"><span>Probably</span><span>[2]</span></button>
+      <button class="choice-btn" onclick="sendChoice(3)"><span>Don't Know</span><span>[3]</span></button>
+      <button class="choice-btn" onclick="sendChoice(4)"><span>Probably Not</span><span>[4]</span></button>
+      <button class="choice-btn" onclick="sendChoice(5)"><span>No</span><span>[5]</span></button>
+    </div>
+    <div class="meter-container">
+      <div class="meter-labels">
+        <span>Confidence</span>
+        <span id="confidence-val">0%</span>
+      </div>
+      <div class="meter-bar"><div class="meter-fill" id="confidence-fill"></div></div>
+    </div>
+  </div>
+
+
+<script>
+  let sessionId = null;
+
+  async function startGame() {
+    const res = await fetch('/start', { method: 'POST' });
+    const data = await res.json();
+    sessionId = data.session_id;
+
+    document.getElementById('start-view').classList.add('hidden');
+    document.getElementById('play-view').classList.remove('hidden');
+    renderQuestion(data.question_number, data.question_text);
+  }
+  function renderQuestion(num, text) {
+  document.getElementById('q-counter').innerText = `Question ${num}`;
+  document.getElementById('question-text').innerText = text;
+}
+</script>
+</body>
+
+
+</html>
