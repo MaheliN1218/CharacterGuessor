@@ -35,7 +35,7 @@ DISPLAY_NAMES = {
     "is_good": "a hero or aligned with good",
     "is_bad": "a villain or antagonist",
     "is_male": "male",
-    "is_human": "a standard biological human without innate alien or mutant genetics",
+    "is_human": "a standard biological human without alien or mutant genetics",
     "is_mutant": "a mutant born with the X-gene",
     "is_alien_or_god": "an alien, deity, or mythological god",
     "is_cyborg_or_tech": "an android, cyborg, or artificial being",
@@ -48,13 +48,13 @@ DISPLAY_NAMES = {
     "skin_non_human": "someone with non-human skin (e.g. green, blue, metallic, or stone)",
     "is_tall_or_massive": "unusually tall or a giant (over 6'3\" / 190 cm)",
     "is_short": "shorter than average (under 5'8\" / 173 cm)",
-    "power_magic_mystic": "a practitioner of sorcery, magic, or mystical arts",
-    "power_tech_gadgets": "primarily reliant on high-tech gadgets, suits, or weaponry rather than innate biology",
+    "power_magic_mystic": "practice sorcery, magic, or mystical arts",
+    "power_tech_gadgets": "use high-tech gadgets, suits, or weaponry rather than innate biology",
     "power_psionic": "a telepath, telekinetic, or possessor of mental psionic powers",
-    "power_cosmic": "a wielder of cosmic-level energy or reality manipulation",
+    "power_cosmic": "who wields cosmic-level energy or reality manipulation",
     "is_pure_martial_artist": "primarily a non-powered hand-to-hand martial artist or street vigilante",
     "can_fly": "capable of self-propelled flight",
-    "has_super_strength": "endowed with godlike or incalculable physical strength (75+ tons)",
+    "has_super_strength": "has godlike or incalculable physical strength ",
     "has_healing_factor": "known for an accelerated regenerative healing factor",
     "uses_energy_blasts": "capable of projecting energy blasts, beams, or lightning",
     "wears_powered_armor": "wearing a full set of powered or technological battle armor",
@@ -106,7 +106,7 @@ class GameSession:
         self.current_q_idx: Optional[int] = None
         self.question_count = 0
         self.history = []
-        self.confidence_threshold = 0.65
+        self.confidence_threshold = 0.90
         self.max_turns = 20
 
 
@@ -127,34 +127,64 @@ def select_best_question(matrix: np.ndarray, probabilities: np.ndarray, asked_in
     return best_idx
 
 
-def update_beliefs(probabilities: np.ndarray, matrix: np.ndarray, question_idx: int, answer_weight: float) -> np.ndarray:
+
+
+def update_beliefs(probabilities: np.ndarray, matrix: np.ndarray, question_idx: int,
+                   answer_weight: float) -> np.ndarray:
     if answer_weight == 0.5:
         return probabilities
+
     features = matrix[:, question_idx]
-    likelihood = 1.0 - abs(features - answer_weight)
-    likelihood = np.clip(likelihood, 0.05, 0.95)
+    diff = abs(features - answer_weight)
+
+
+    if answer_weight in (0.0, 1.0):
+        likelihood = np.where(diff < 0.5, 0.95, 0.02)
+    else:
+        likelihood = 1.0 - diff
+        likelihood = np.clip(likelihood, 0.15, 0.85)
+
     posterior = probabilities * likelihood
     total = np.sum(posterior)
-    return posterior / total if total > 0 else probabilities
+
+
+    if total <= 1e-12:
+        return probabilities
+
+    return posterior / total
 
 
 def handling_same_category_features(session: GameSession, answered_feature: str, weight: float):
-    if weight < 0.8:
-        return
+    for cat_name, members in MUTUALLY_EXCLUSIVE_CATEGORIES.items():
+        if answered_feature not in members:
+            continue
 
-    for _, members in MUTUALLY_EXCLUSIVE_CATEGORIES.items():
-        if answered_feature in members:
-            similars = [f for f in members if f != answered_feature]
-            for similar in similars:
-                if similar in dataset.features:
-                    sim_idx = dataset.features.index(similar)
-                    session.asked_indices.add(sim_idx)
-                    session.probabilities = update_beliefs(session.probabilities,
+        if weight >= 0.8:
+            other_members = [f for f in members if f != answered_feature]
+            for other in other_members:
+                if other in dataset.features:
+                    other_idx = dataset.features.index(other)
+                    session.asked_indices.add(other_idx)
+                    session.probabilities = update_beliefs(
+                        session.probabilities,
                         dataset.matrix,
-                        sim_idx,
+                        other_idx,
                         answer_weight=0.0,
                     )
 
+
+        elif weight <= 0.2 and len(members) == 2:
+            other = members[1] if members[0] == answered_feature else members[0]
+            if other in dataset.features:
+                other_idx = dataset.features.index(other)
+                session.asked_indices.add(other_idx)
+                session.probabilities = update_beliefs(
+                    session.probabilities,
+                    dataset.matrix,
+                    other_idx,
+                    answer_weight=1.0,
+                )
+        break
 
 class AnswerRequest(BaseModel):
     session_id: str
@@ -174,6 +204,7 @@ def start_game():
     session_id = str(uuid.uuid4())
     sessions[session_id] = GameSession()
     session = sessions[session_id]
+    # REMOVED: probs = session.probabilities * likelihood
 
     q_idx = select_best_question(dataset.matrix, session.probabilities, session.asked_indices)
     if q_idx is None:
