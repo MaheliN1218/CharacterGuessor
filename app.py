@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 from pydantic import BaseModel
 
-app = FastAPI(title="Character guessing Engine", version="1.0.0")
+app = FastAPI(title="Character Guessing Engine", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -54,7 +54,7 @@ DISPLAY_NAMES = {
     "power_cosmic": "who wields cosmic-level energy or reality manipulation",
     "is_pure_martial_artist": "primarily a non-powered hand-to-hand martial artist or street vigilante",
     "can_fly": "capable of self-propelled flight",
-    "has_super_strength": "has godlike or incalculable physical strength ",
+    "has_super_strength": "has godlike or incalculable physical strength",
     "has_healing_factor": "known for an accelerated regenerative healing factor",
     "uses_energy_blasts": "capable of projecting energy blasts, beams, or lightning",
     "wears_powered_armor": "wearing a full set of powered or technological battle armor",
@@ -70,7 +70,6 @@ MUTUALLY_EXCLUSIVE_CATEGORIES = {
     "eye_color": ["eyes_blue", "eyes_red"],
     "species_origin": ["is_human", "is_mutant", "is_alien_or_god", "is_cyborg_or_tech"],
 }
-
 
 
 class DatasetManager:
@@ -90,13 +89,14 @@ class DatasetManager:
         new_row = {"name": name}
         for f in self.features:
             new_row[f] = feature_dict.get(f, 0.5)
+
         new_df = pd.DataFrame([new_row])
         self.df = pd.concat([self.df, new_df], ignore_index=True).drop_duplicates(subset=["name"])
         self.df.to_csv(self.path, index=False)
-        self.load()
-
+        self.load()  # Refreshes internal matrix and names
 
 dataset = DatasetManager(CSV_PATH)
+
 
 class GameSession:
     def __init__(self):
@@ -108,6 +108,7 @@ class GameSession:
         self.history = []
         self.confidence_threshold = 0.90
         self.max_turns = 20
+        self.guess_count = 0
 
 
 sessions: Dict[str, GameSession] = {}
@@ -127,8 +128,6 @@ def select_best_question(matrix: np.ndarray, probabilities: np.ndarray, asked_in
     return best_idx
 
 
-
-
 def update_beliefs(probabilities: np.ndarray, matrix: np.ndarray, question_idx: int,
                    answer_weight: float) -> np.ndarray:
     if answer_weight == 0.5:
@@ -136,7 +135,6 @@ def update_beliefs(probabilities: np.ndarray, matrix: np.ndarray, question_idx: 
 
     features = matrix[:, question_idx]
     diff = abs(features - answer_weight)
-
 
     if answer_weight in (0.0, 1.0):
         likelihood = np.where(diff < 0.5, 0.95, 0.02)
@@ -146,7 +144,6 @@ def update_beliefs(probabilities: np.ndarray, matrix: np.ndarray, question_idx: 
 
     posterior = probabilities * likelihood
     total = np.sum(posterior)
-
 
     if total <= 1e-12:
         return probabilities
@@ -172,7 +169,6 @@ def handling_same_category_features(session: GameSession, answered_feature: str,
                         answer_weight=0.0,
                     )
 
-
         elif weight <= 0.2 and len(members) == 2:
             other = members[1] if members[0] == answered_feature else members[0]
             if other in dataset.features:
@@ -185,6 +181,7 @@ def handling_same_category_features(session: GameSession, answered_feature: str,
                     answer_weight=1.0,
                 )
         break
+
 
 class AnswerRequest(BaseModel):
     session_id: str
@@ -199,16 +196,16 @@ class LearnRequest(BaseModel):
     session_id: str
     correct_name: str
 
+
 @app.post("/start")
 def start_game():
     session_id = str(uuid.uuid4())
     sessions[session_id] = GameSession()
     session = sessions[session_id]
-    # REMOVED: probs = session.probabilities * likelihood
 
     q_idx = select_best_question(dataset.matrix, session.probabilities, session.asked_indices)
     if q_idx is None:
-        raise HTTPException(status_code=500, detail="Cannot initialize question tree.")
+        raise HTTPException(status_code=500, detail="Cannot start question tree.")
 
     session.asked_indices.add(q_idx)
     session.current_q_idx = q_idx
@@ -222,6 +219,8 @@ def start_game():
         "question_text": f"Is your character {DISPLAY_NAMES.get(feat_name, feat_name)}?",
         "total_characters": session.num_characters,
     }
+
+
 @app.post("/answer")
 def submit_answer(req: AnswerRequest):
     if req.session_id not in sessions:
@@ -279,20 +278,33 @@ def reject_guess(req: RejectGuessRequest):
         raise HTTPException(status_code=404, detail="Session not found.")
 
     session = sessions[req.session_id]
-    leader_idx = int(np.argmax(session.probabilities))
+    session.guess_count += 1
 
+
+    leader_idx = int(np.argmax(session.probabilities))
     session.probabilities[leader_idx] = 0.0
+
     total = np.sum(session.probabilities)
-    if total > 0:
-        session.probabilities /= total
+
+
+    if session.guess_count >= 3 or total <= 1e-6:
+        return {
+            "is_guess": False,
+            "can_learn": True,
+            "message": "Max guesses reached or pool exhausted.",
+        }
+
+    session.probabilities /= total
 
     q_idx = select_best_question(dataset.matrix, session.probabilities, session.asked_indices)
     if q_idx is None:
         next_leader = int(np.argmax(session.probabilities))
+        next_conf = float(session.probabilities[next_leader])
         return {
             "is_guess": True,
+            "can_learn": False,
             "name": str(dataset.names[next_leader]),
-            "confidence": round(session.probabilities[next_leader] * 100, 1),
+            "confidence": round(next_conf * 100, 1),
             "question_number": session.question_count,
         }
 
@@ -303,6 +315,7 @@ def reject_guess(req: RejectGuessRequest):
 
     return {
         "is_guess": False,
+        "can_learn": False,
         "question_number": session.question_count,
         "feature": next_feat,
         "question_text": f"Is your character {DISPLAY_NAMES.get(next_feat, next_feat)}?",
@@ -343,4 +356,3 @@ def serve_ui():
     elif os.path.exists("index.html"):
         return FileResponse("index.html")
     raise HTTPException(status_code=404, detail="index.html not found.")
-

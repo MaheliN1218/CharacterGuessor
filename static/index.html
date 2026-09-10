@@ -2,96 +2,360 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Character Gueeser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Guesser</title>
 </head>
 <style>
-    body{
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
         background-color: #282D3F;
         color: white;
         text-align: center;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
     }
-    button{
+
+    .container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.5px;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        margin: 1rem 0;
+        color: #FFFFFF;
+    }
+
+    .subtitle {
+        color: #B0B5C9;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 1.75rem;
+    }
+
+    button {
         color: white;
         background-color: #DD969A;
         border: none;
         cursor: pointer;
-        padding: 14px 16px;
+        padding: 14px 28px;
         border-radius: 15px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        transition: transform 0.15s ease, opacity 0.15s ease;
     }
-      .question-box {
-      margin: 1.75rem 0;
-      min-height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 1.25rem;
-      font-weight: 600;
-      line-height: 1.4;
+
+    button:hover {
+        opacity: 0.92;
+        transform: translateY(-1px);
     }
-    .btn-group { display: flex; flex-direction: column; gap: 0.65rem; }
+
+    button:active {
+        transform: translateY(1px);
+    }
+
+    .question-box {
+        margin: 1.75rem 0;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+    }
 
     button.choice-btn {
-
-      color: white;
-      background-color:#C7383C;
-      padding: 0.85rem 1.25rem;
-      font-size: 1rem;
-      font-weight: 500;
-      border-radius: 0.75rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      justify-content: space-between;
+        color: white;
+        background-color: #C7383C;
+        padding: 0.85rem 1.25rem;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-    .hidden { display: none !important; }
+
+    button.choice-btn:hover {
+        opacity: 0.92;
+        transform: translateY(-2px);
+    }
+
+    .meter-container {
+        margin-top: 1.75rem;
+        text-align: left;
+    }
+
+    .meter-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: #B0B5C9;
+        margin-bottom: 0.4rem;
+    }
+
+    .meter-bar {
+        height: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 9999px;
+        overflow: hidden;
+    }
+
+    .meter-fill {
+        height: 100%;
+        width: 0%;
+        background: #DD969A;
+        border-radius: 9999px;
+        transition: width 0.35s ease;
+    }
+
+    .action-group {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+
+    .action-btn-yes {
+        background-color: #DD969A;
+        flex: 1;
+    }
+
+    .action-btn-no {
+        background-color: #C7383C;
+        flex: 1;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 0.75rem;
+        color: white;
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
+        outline: none;
+    }
+
+    .input-field:focus {
+        border-color: #DD969A;
+    }
+
+    .hidden {
+        display: none !important;
+    }
 </style>
 
 <body>
-<div id="start-view">
-<h1>Character guesser</h1>
-<button id="start" onclick="startGame()"><b>Start!</b></button>
-</div>
-   <div id="play-view" class="hidden">
-    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-sub);">
-      <span id="q-counter">Question 1</span>
-    </div>
-    <div class="question-box" id="question-text">Loading question...</div>
-    <div class="btn-group">
-      <button class="choice-btn" onclick="sendChoice(1)"><span>Yes</span><span>[1]</span></button>
-      <button class="choice-btn" onclick="sendChoice(2)"><span>Probably</span><span>[2]</span></button>
-      <button class="choice-btn" onclick="sendChoice(3)"><span>Don't Know</span><span>[3]</span></button>
-      <button class="choice-btn" onclick="sendChoice(4)"><span>Probably Not</span><span>[4]</span></button>
-      <button class="choice-btn" onclick="sendChoice(5)"><span>No</span><span>[5]</span></button>
-    </div>
-    <div class="meter-container">
-      <div class="meter-labels">
-        <span>Confidence</span>
-        <span id="confidence-val">0%</span>
-      </div>
-      <div class="meter-bar"><div class="meter-fill" id="confidence-fill"></div></div>
-    </div>
-  </div>
+<div class="container">
 
+    <!-- 1. Start View -->
+    <div id="start-view">
+        <h1>Character Guesser</h1>
+        <p class="subtitle">Think of a character from Marvel or DC.<br>I will deduce their identity by asking you questions.</p>
+        <button id="start" onclick="startGame()"><b>Start!</b></button>
+    </div>
+
+    <!-- 2. play view -->
+    <div id="play-view" class="hidden">
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #B0B5C9;">
+            <span id="q-counter">Question 1</span>
+            <span id="candidate-tracker">Top: Calculating...</span>
+        </div>
+
+        <div class="question-box" id="question-text">Loading question...</div>
+
+        <div class="btn-group">
+            <button class="choice-btn" onclick="sendChoice(1)"><span>Yes</span><span>[1]</span></button>
+            <button class="choice-btn" onclick="sendChoice(2)"><span>Probably</span><span>[2]</span></button>
+            <button class="choice-btn" onclick="sendChoice(3)"><span>Don't Know</span><span>[3]</span></button>
+            <button class="choice-btn" onclick="sendChoice(4)"><span>Probably Not</span><span>[4]</span></button>
+            <button class="choice-btn" onclick="sendChoice(5)"><span>No</span><span>[5]</span></button>
+        </div>
+
+        <div class="meter-container">
+            <div class="meter-labels">
+                <span>Confidence</span>
+                <span id="confidence-val">0%</span>
+            </div>
+            <div class="meter-bar">
+                <div class="meter-fill" id="confidence-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. guess view -->
+    <div id="guess-view" class="hidden">
+        <p class="subtitle" style="margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; color: #DD969A;">Result</p>
+        <p style="font-size: 1.15rem;">I think your character is</p>
+        <h2 id="guess-name">Character Name</h2>
+        <p class="subtitle" id="guess-meta">Confidence: 0%</p>
+
+        <div class="action-group">
+            <button class="action-btn-yes" onclick="location.reload()"><b>Correct!</b></button>
+            <button class="action-btn-no" onclick="rejectGuess()"><b>Wrong</b></button>
+        </div>
+    </div>
+
+    <!-- 4. learn view -->
+    <div id="learn-view" class="hidden">
+        <h1>You Won!</h1>
+        <p class="subtitle">Who was your character? Teach the engine so it recognizes them next time.</p>
+        <input type="text" id="learn-name" class="input-field" placeholder="Enter character name..." autocomplete="off">
+        <button class="action-btn-yes" style="width: 100%;" onclick="submitLearn()"><b>Teach Engine</b></button>
+    </div>
+
+</div>
 
 <script>
-  let sessionId = null;
+    let sessionId = null;
 
-  async function startGame() {
-    const res = await fetch('/start', { method: 'POST' });
-    const data = await res.json();
-    sessionId = data.session_id;
+    async function startGame() {
+        try {
+            const res = await fetch('/start', { method: 'POST' });
+            if (!res.ok) {
+                const err = await res.json();
+                alert("Server error: " + (err.detail || res.statusText));
+                return;
+            }
+            const data = await res.json();
+            sessionId = data.session_id;
 
-    document.getElementById('start-view').classList.add('hidden');
-    document.getElementById('play-view').classList.remove('hidden');
-    renderQuestion(data.question_number, data.question_text);
-  }
-  function renderQuestion(num, text) {
-  document.getElementById('q-counter').innerText = `Question ${num}`;
-  document.getElementById('question-text').innerText = text;
-}
+            document.getElementById('start-view').classList.add('hidden');
+            document.getElementById('play-view').classList.remove('hidden');
+            renderQuestion(data.question_number, data.question_text);
+        } catch (err) {
+            console.error(err);
+            alert("Could not reach backend. Make sure Uvicorn is running on port 8000.");
+        }
+    }
+
+    function renderQuestion(num, text) {
+        document.getElementById('q-counter').innerText = `Question ${num}`;
+        document.getElementById('question-text').innerText = text;
+    }
+
+    async function sendChoice(val) {
+        try {
+            const res = await fetch('/answer', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ session_id: sessionId, choice: val })
+            });
+            const data = await res.json();
+
+            if (data.is_guess) {
+                showGuess(data.name, data.confidence);
+            } else {
+                renderQuestion(data.question_number, data.question_text);
+                if (data.top_candidate) {
+                    document.getElementById('candidate-tracker').innerText = `Top: ${data.top_candidate}`;
+                    document.getElementById('confidence-val').innerText = `${data.top_confidence}%`;
+                    document.getElementById('confidence-fill').style.width = `${data.top_confidence}%`;
+                }
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    function showGuess(name, conf) {
+        document.getElementById('play-view').classList.add('hidden');
+        document.getElementById('guess-view').classList.remove('hidden');
+        document.getElementById('guess-name').innerText = name;
+        document.getElementById('guess-meta').innerText = `Confidence: ${conf}%`;
+    }
+
+    async function rejectGuess() {
+        try {
+            const res = await fetch('/reject-guess', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ session_id: sessionId })
+            });
+            const data = await res.json();
+
+            if (data.can_learn) {
+      document.getElementById('guess-view').classList.add('hidden');
+      document.getElementById('play-view').classList.add('hidden');
+      document.getElementById('learn-view').classList.remove('hidden');
+      return;
+    }
+
+            if (data.is_guess) {
+                showGuess(data.name, data.confidence);
+            } else {
+                document.getElementById('guess-view').classList.add('hidden');
+                document.getElementById('play-view').classList.remove('hidden');
+                renderQuestion(data.question_number, data.question_text);
+            }
+        } catch (err) {
+            document.getElementById('guess-view').classList.add('hidden');
+            document.getElementById('learn-view').classList.remove('hidden');
+        }
+    }
+async function submitLearn() {
+        const nameInput = document.getElementById('learn-name');
+        const name = nameInput.value.trim();
+
+        if (!name) {
+            alert("Please enter a character name.");
+            return;
+        }
+
+        if (!sessionId) {
+            alert("Session lost! Please restart the game.");
+            return;
+        }
+
+        try {
+            const res = await fetch('/learn', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ session_id: sessionId, correct_name: name })
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                alert("Error from server: " + (data.detail || "Failed to save character."));
+                return;
+            }
+
+            alert(`Success! '${name}' was saved to the character dataset.`);
+            location.reload();
+        } catch (err) {
+            console.error("Network error:", err);
+            alert("Network error: Could not reach the server.");
+        }
+    }
 </script>
 </body>
-
-
 </html>
