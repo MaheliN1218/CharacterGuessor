@@ -1,0 +1,201 @@
+ID,Character_Name,Real_Name,Publisher,Alignment,Gender,Species,Hair_Color,Eye_Color,Skin_Tone,Height_Class,Exact_Height_cm,Primary_Power_Type,Key_Powers_and_Traits,Strength_Tier,Intelligence_Tier,Signature_Weapon_Gear
+1,Spider-Man,Peter Parker,Marvel,Good,Male,Human Mutate,Brown,Hazel,Fair,Average,178,Physical,"Wall-crawling, Spider-Sense, Superhuman agility",Superhuman,Genius,Web-Shooters
+2,Iron Man,Tony Stark,Marvel,Good,Male,Human,Black,Blue,Fair,Average,185,Tech/Gadgets,"Powered exoskeleton, Flight, Repulsor blasts",Incalculable,Super-Genius,Iron Man Armor
+3,Captain America,Steve Rogers,Marvel,Good,Male,Human Mutate,Blond,Blue,Fair,Average,188,Physical,"Peak human physical condition, Accelerated healing",Enhanced,Gifted,Vibranium Shield
+4,Thor,Thor Odinson,Marvel,Good,Male,Asgardian,Blond,Blue,Fair,Massive,201,Energy Projection,"Weather manipulation, Divine physiology, Flight",Cosmic/Godlike,Gifted,Mjolnir
+5,Hulk,Bruce Banner,Marvel,Neutral,Male,Human Mutate,Green,Green,Green,Massive,244,Physical,"Rage-based unlimited strength, Extreme regeneration",Incalculable,Super-Genius,None
+6,Black Widow,Natasha Romanoff,Marvel,Good,Female,Human Mutate,Red,Green,Fair,Short,170,Martial Arts,"Master martial artist, Espionage, Slowed aging",Enhanced,Gifted,Widow's Bite
+7,Hawkeye,Clint Barton,Marvel,Good,Male,Human,Blond,Blue,Fair,Average,191,Martial Arts,"Master archer, Trick arrows, Master marksman",Street,Average,Custom Recurve Bow
+8,Wolverine,"Logan / James Howlett",Marvel,Good,Male,Mutant,Black,Dark Brown,Fair,Short,160,Physical,"Adamantium skeleton/claws, Regenerative healing",Enhanced,Gifted,Adamantium Claws
+9,Deadpool,Wade Wilson,Marvel,Neutral,Male,Human Mutate,Bald,Brown,Scarred,Average,188,Physical,"Accelerated healing factor, Fourth-wall breaking",Superhuman,Average,Twin Katanas
+10,Doctor Strange,Stephen Strange,Marvel,Good,Male,Human,"Black/White",Grey,Fair,Average,188,Magic/Mystic,"Sorcery, Dimensional travel, Reality manipulation",Street,Super-Genius,Eye of Agamotto
+11,Black Panther,T'Challa,Marvel,Good,Male,Human Mutate,Black,Brown,Dark,Average,183,Physical,"Enhanced senses, Vibranium suit, Martial mastery",Superhuman,Super-Genius,Vibranium Habit
+12,Captain Marvel,Carol Danvers,Marvel,Good,Female,"Human/Kree",Blond,Blue,Fair,Average,180,Energy Projection,"Photon blasts, Energy absorption, Cosmic flight",Incalculable,Gifted,None
+13,Scarlet Witch,Wanda Maximoff,Marvel,Neutral,Female,Human Mutate,Auburn,Green,Fair,Short,170,Reality Warping,"Chaos magic, Probability alteration, Telekinesis",Street,Gifted,None
+14,Vision,Vision,Marvel,Good,Male,Synthezoid,Bald,Gold,Red,Tall,191,Energy Projection,"Density manipulation, Solar beam, Intangibility",Incalculable,Super-Genius,Solar Gem
+15,Ant-Man,Scott Lang,Marvel,Good,Male,Human,Brown,Blue,Fair,Average,183,Tech/Gadgets,"Size alteration, Insect telepathy",Superhuman,Gifted,Pym Particles Suit
+16,Wasp,Janet van Dyne,Marvel,Good,Female,Human Mutate,Auburn,Blue,Fair,Short,163,Energy Projection,"Bio-electric stingers, Size alteration, Flight",Enhanced,Gifted,Wasp Wings
+17,Daredevil,Matt Murdock,Marvel,Good,Male,Human Mutate,Red,Blue,Fair,Average,183,Physical,"Radar sense, Superhuman senses, Master acrobat",Street,Gifted,Billy Club
+18,Punisher,Frank Castle,Marvel,Neutral,Male,Human,Black,Blue,Fair,Average,185,Martial Arts,"Master tactician, Lethal weapons mastery",Street,Gifted,Custom Arsenal
+19,Magneto,Max Eisenhardt,Marvel,Neutral,Male,Mutant,White,Blue,Fair,Average,188,Energy Projection,"Electromagnetism manipulation, Metal control",Street,Super-Genius,Magnetic Helmet
+20,Professor X,Charles Xavier,Marvel,Good,Male,Mutant,Bald,Blue,Fair,Average,183,Psionic,"Alpha-level telepathy, Mind control, Astral projection",Street,Super-Genius,Cerebro
+21,Cyclops,Scott Summers,Marvel,Good,Male,Mutant,Brown,Brown,Fair,Tall,191,Energy Projection,"Optic force blasts, Spatial geometry mastery",Street,Gifted,Ruby-Quartz Visor
+22,Jean Grey,Jean Grey,Marvel,Good,Female,Mutant,Red,Green,Fair,Short,168,Psionic,"Telekinesis, Omega-level telepathy, Phoenix Force",Cosmic/Godlike,Gifted,None
+23,Storm,Ororo Munroe,Marvel,Good,Female,Mutant,White,Blue,Dark,Average,180,Energy Projection,"Atmospheric control, Flight, Lightning generation",Street,Gifted,None
+24,Rogue,Anna Marie LeBeau,Marvel,Good,Female,Mutant,"Brown/White",Green,Fair,Short,173,Physical,"Power absorption, Flight, Super strength",Incalculable,Average,None
+25,Gambit,Remy LeBeau,Marvel,Good,Male,Mutant,Brown,Red-on-Black,Fair,Average,185,Energy Projection,"Kinetic energy charging, Enhanced agility",Street,Average,Bo Staff & Cards
+26,Colossus,Piotr Rasputin,Marvel,Good,Male,Mutant,Black,Blue,Metal,Massive,226,Physical,"Organic steel transformation, Immense durability",Incalculable,Average,None
+27,Nightcrawler,Kurt Wagner,Marvel,Good,Male,Mutant,Navy Blue,Yellow,Blue,Short,175,Physical,"Line-of-sight teleportation, Prehensile tail",Street,Average,Twin Rapiers
+28,Emma Frost,Emma Frost,Marvel,Neutral,Female,Mutant,Blond,Blue,Fair,Average,178,Psionic,"Omega-class telepathy, Organic diamond form",Incalculable,Super-Genius,None
+29,Beast,Hank McCoy,Marvel,Good,Male,Mutant,Blue,Blue,Blue,Short,180,Physical,"Superhuman agility, Blue fur, Hyper-intellect",Superhuman,Super-Genius,None
+30,Iceman,Bobby Drake,Marvel,Good,Male,Mutant,Brown,Brown,Ice,Short,173,Energy Projection,"Thermal moisture control, Organic ice form",Incalculable,Gifted,None
+31,Namor,Namor McKenzie,Marvel,Neutral,Male,"Mutant/Atlantean",Black,Grey,Fair,Average,188,Physical,"Aquatic adaptation, Flight via ankle wings, Strength",Incalculable,Gifted,Neptune's Trident
+32,Silver Surfer,Norrin Radd,Marvel,Good,Male,Zenn-Lavian,Bald,Silver,Silver,Tall,193,Cosmic,"Power Cosmic manipulation, Faster-than-light flight",Cosmic/Godlike,Super-Genius,Cosmic Surfboard
+33,Thanos,Thanos,Marvel,Bad,Male,"Eternal/Deviant",Bald,Red,Purple,Massive,201,Cosmic,"Cosmic energy projection, Godlike durability",Cosmic/Godlike,Super-Genius,Infinity Gauntlet
+34,Loki,Loki Laufeyson,Marvel,Neutral,Male,Frost Giant,Black,Green,Fair,Tall,193,Magic/Mystic,"Illusion casting, Shapeshifting, Sorcery",Superhuman,Super-Genius,Scepter
+35,Doctor Doom,Victor Von Doom,Marvel,Bad,Male,Human,Brown,Brown,Scarred,Average,188,Magic/Mystic,"Sorcery, Technopathy, Genius intellect",Incalculable,Super-Genius,Titanium Armor
+36,Venom,Eddie Brock,Marvel,Neutral,Male,"Human/Symbiote",Blond,Blue,Black,Massive,229,Symbiotic,"Tendril generation, Camouflage, Wall crawling",Incalculable,Average,Symbiote
+37,Carnage,Cletus Kasady,Marvel,Bad,Male,"Human/Symbiote",Red,Green,Red/Black,Tall,198,Symbiotic,"Lethal weapon morphing, Web generation",Incalculable,Average,Symbiote Axes
+38,Ghost Rider,Johnny Blaze,Marvel,Good,Male,"Human/Demon",Flames,Flames,Bone,Average,188,Magic/Mystic,"Hellfire projection, Penance Stare, Invulnerability",Incalculable,Average,Hellfire Chain
+39,Blade,Eric Brooks,Marvel,Good,Male,Dhampir,Black,Brown,Dark,Average,188,Physical,"Vampiric abilities without weaknesses, Enhanced senses",Superhuman,Gifted,Titanium Sword
+40,Moon Knight,Marc Spector,Marvel,Good,Male,Human Mutate,Brown,Brown,Fair,Average,188,Martial Arts,"Lunar strength fluctuation, Expert combatant",Enhanced,Gifted,Crescent Darts
+41,She-Hulk,Jennifer Walters,Marvel,Good,Female,Human Mutate,Green,Green,Green,Massive,201,Physical,"Gamma-powered strength, High durability",Incalculable,Genius,None
+42,Winter Soldier,Bucky Barnes,Marvel,Good,Male,Human,Brown,Brown,Fair,Average,175,Physical,"Bionic cybernetic arm, Master assassin",Enhanced,Gifted,Bionic Arm
+43,Falcon,Sam Wilson,Marvel,Good,Male,Human,Black,Brown,Dark,Average,180,Tech/Gadgets,"Mechanical flight wings, Avian telepathic link",Street,Gifted,Vibranium EXO Wings
+44,War Machine,James Rhodes,Marvel,Good,Male,Human,Bald,Brown,Dark,Average,185,Tech/Gadgets,"Heavy ballistic armor, Shoulder cannon, Rockets",Incalculable,Gifted,Variable Armor
+45,Nova,Richard Rider,Marvel,Good,Male,Human,Brown,Brown,Fair,Average,185,Cosmic,"Nova Force energy manipulation, FTL flight",Cosmic/Godlike,Gifted,Nova Centurion Helmet
+46,Star-Lord,Peter Quill,Marvel,Good,Male,"Human/Spartoi",Blond,Blue,Fair,Average,188,Tech/Gadgets,"Master strategist, Elemental gun handling",Street,Gifted,Element Guns
+47,Gamora,Gamora Zen Whoberi,Marvel,Good,Female,Zen-Whoberis,"Black/Magenta",Yellow,Green,Average,183,Martial Arts,"Most dangerous assassin, Enhanced physiology",Superhuman,Gifted,Godslayer Blade
+48,Drax the Destroyer,Arthur Douglas,Marvel,Good,Male,Human Soul/Avatar,Bald,Red,Green/Red,Tall,193,Physical,"Knife combat mastery, Anti-Thanos physiology",Incalculable,Average,Dual Daggers
+49,Rocket Raccoon,Rocket,Marvel,Good,Male,Genetically Enhanced Raccoon,"Brown/Grey",Brown,Fur,Short,122,Tech/Gadgets,"Tactical genius, Heavy munitions construction",Street,Genius,Plasma Rifle
+50,Groot,Groot,Marvel,Good,Male,Flora Colossus,Foliage,Black,Wood,Massive,701,Physical,"Dendrokinesis, Plasticity, Regenerative limbs",Incalculable,Gifted,None
+51,Adam Warlock,Adam Warlock,Marvel,Good,Male,Artificial Human,Gold,White,Gold,Average,188,Cosmic,"Quantum magic, Soul manipulation, Energy blasts",Cosmic/Godlike,Super-Genius,Karmic Staff
+52,Cable,Nathan Summers,Marvel,Good,Male,Mutant,White,Blue,Metal/Fair,Tall,203,Psionic,"Techno-organic arm, Telekinesis, Telepathy",Incalculable,Genius,Plasma Rifle
+53,Deadpool (X-Force),Wade Wilson,Marvel,Neutral,Male,Human Mutate,Bald,Brown,Scarred,Average,188,Physical,"Regenerative immortality, Master marksman",Superhuman,Average,Twin Katanas
+54,Brawn,Amadeus Cho,Marvel,Good,Male,Human Mutate,Black,Brown,Green,Short,170,Physical,"Calculated gamma strength, Hyper-computer brain",Incalculable,Super-Genius,None
+55,Miles Morales,Miles Morales,Marvel,Good,Male,Human Mutate,Black,Brown,Dark,Short,173,Physical,"Bio-electric venom blast, Camouflage, Wall-crawl",Superhuman,Genius,Web-Shooters
+56,Spider-Gwen,Gwen Stacy,Marvel,Good,Female,Human Mutate,Blond,Blue,Fair,Short,165,Physical,"Spider-sense, Wall-crawling, Dimension travel",Superhuman,Gifted,Web-Shooters
+57,Green Goblin,Norman Osborn,Marvel,Bad,Male,Human Mutate,Brown,Blue,Fair,Average,180,Physical,"Goblin formula enhanced strength, Chemist genius",Superhuman,Genius,Goblin Glider
+58,Doctor Octopus,Otto Octavius,Marvel,Bad,Male,Human,Brown,Brown,Fair,Short,175,Tech/Gadgets,Four telepathically controlled titanium tentacles,Incalculable,Super-Genius,Tentacles Harness
+59,Kingpin,Wilson Fisk,Marvel,Bad,Male,Human,Bald,Blue,Fair,Massive,201,Physical,"Peak physical mass, Master of underworld combat",Enhanced,Genius,Obliterator Cane
+60,Bullseye,Lester,Marvel,Bad,Male,Human,Bald,Blue,Fair,Average,183,Physical,"Lethal projectile accuracy, Adamantium spine",Street,Gifted,Throwing Blades
+61,Red Skull,Johann Shmidt,Marvel,Bad,Male,Human,None,Red,Red/Fair,Average,185,Physical,"Super-soldier physiology, Master tactician",Enhanced,Genius,Dust of Death
+62,Modok,George Tarleton,Marvel,Bad,Male,Human Mutate,Brown,White,Fair,Massive,366,Psionic,"Hyper-intelligence, Psionic mind beams, Forcefield",Street,Super-Genius,Doomsday Chair
+63,Taskmaster,Tony Masters,Marvel,Neutral,Male,Human,Brown,Brown,Fair,Average,188,Physical,"Photographic reflexes, Master of all weapons",Street,Gifted,Copycat Shield & Sword
+64,Abomination,Emil Blonsky,Marvel,Bad,Male,Human Mutate,None,Green,Green,Massive,203,Physical,"Twice base Hulk strength, Retained intelligence",Incalculable,Gifted,None
+65,Leader,Samuel Sterns,Marvel,Bad,Male,Human Mutate,Black,Green,Green,Short,178,Psionic,"Gamma hyper-intellect, Telekinesis, Mind control",Street,Super-Genius,None
+66,Mysterio,Quentin Beck,Marvel,Bad,Male,Human,Black,Blue,Fair,Average,180,Tech/Gadgets,"Holographic illusions, Special FX mastery, Gas",Street,Genius,Fishbowl Helmet
+67,Sandman,Flint Marko,Marvel,Neutral,Male,Human Mutate,Brown,Brown,Sand,Average,185,Physical,"Granular sand morphing, Density hardening",Incalculable,Average,None
+68,Electro,Max Dillon,Marvel,Bad,Male,Human Mutate,Bald,Blue,Fair,Average,180,Energy Projection,"Bio-electricity generation, Lightning travel",Enhanced,Average,None
+69,Kraven the Hunter,Sergei Kravinoff,Marvel,Bad,Male,Human Mutate,Black,Brown,Fair,Average,183,Physical,"Jungle potion physical buffs, Master tracker",Enhanced,Gifted,Hunting Spear
+70,Vulture,Adrian Toomes,Marvel,Bad,Male,Human,Bald,Hazel,Fair,Average,180,Tech/Gadgets,"Electromagnetic flight harness, Silent flight",Enhanced,Genius,Vulture Wings
+71,Galactus,Galan,Marvel,Neutral,Male,Cosmic Entity,None,Variable,Variable,Massive,872,Cosmic,"World devouring, Reality warping, Cosmic rays",Cosmic/Godlike,Omniscient,Planetary Converter
+72,Silver Samurai,Keniuchio Harada,Marvel,Bad,Male,Mutant,Black,Brown,Fair,Average,188,Energy Projection,Tachyon field emission through swords,Street,Gifted,Tachyon Katana
+73,Sabretooth,Victor Creed,Marvel,Bad,Male,Mutant,Blond,Amber,Fair,Tall,198,Physical,"Regenerative factor, Feral senses, Claws",Superhuman,Average,None
+74,Juggernaut,Cain Marko,Marvel,Neutral,Male,Human Avatar,Red,Blue,Fair,Massive,287,Physical,"Irresistible momentum, Cyttorak forcefield",Incalculable,Average,Crimson Helmet
+75,Mystique,Raven Darkholme,Marvel,Neutral,Female,Mutant,Red,Yellow,Blue,Average,178,Physical,"Metamorphic cellular shapeshifting, Retarded aging",Enhanced,Gifted,Concealed Firearms
+76,Apocalypse,En Sabah Nur,Marvel,Bad,Male,Mutant,None,Red,Grey,Massive,213,Cosmic,"Molecular restructure, Celestial techno-virus",Cosmic/Godlike,Super-Genius,Celestial Armor
+77,Sinister,Nathaniel Essex,Marvel,Bad,Male,Human Mutate,Black,Red,Fair,Tall,196,Psionic,"Genetic cloning mastery, Telepathy, Regeneration",Incalculable,Super-Genius,None
+78,Omega Red,Arkady Rossovich,Marvel,Bad,Male,Mutant,Blond,Red,Pale,Massive,211,Physical,"Carbonadium tentacles, Death pheromones",Incalculable,Average,Carbonadium Whips
+79,Bishop,Lucas Bishop,Marvel,Good,Male,Mutant,Black,Brown,Dark,Tall,198,Energy Projection,Radiant energy absorption and redirection,Enhanced,Gifted,Energy Blaster
+80,Psylocke,Betsy Braddock,Marvel,Good,Female,Mutant,Purple,Violet,Fair,Average,180,Psionic,"Psionic blade generation, Telekinesis, Ninja",Street,Gifted,Psionic Katana
+81,X-23,Laura Kinney,Marvel,Good,Female,Mutant,Black,Green,Fair,Short,168,Physical,"Foot and hand adamantium claws, Healing factor",Enhanced,Gifted,Adamantium Claws
+82,Quicksilver,Pietro Maximoff,Marvel,Neutral,Male,Human Mutate,Silver,Blue,Fair,Average,183,Physical,"Superhuman speed, Molecular agitation",Enhanced,Average,None
+83,Sentry,Robert Reynolds,Marvel,Neutral,Male,Human Mutate,Blond,Blue,Fair,Average,188,Cosmic,"Power of one million exploding suns, Matter control",Cosmic/Godlike,Gifted,None
+84,Hercules,Heracles,Marvel,Good,Male,Olympian,Brown,Blue,Fair,Tall,196,Physical,"True godlike strength, Divine immortality",Incalculable,Average,Golden Mace
+85,Ares,Ares,Marvel,Neutral,Male,Olympian,Brown,Brown,Fair,Tall,191,Physical,"God of War physicals, Weapon mastery, Armor",Incalculable,Gifted,Battleaxe
+86,Black Bolt,Blackagar Boltagon,Marvel,Good,Male,Inhuman,Black,Blue,Fair,Average,188,Energy Projection,"Quasi-sonic destruction scream, Particle control",Cosmic/Godlike,Gifted,Tuning Fork Crown
+87,Medusa,Medusalith Amaquelin,Marvel,Good,Female,Inhuman,Red,Green,Fair,Average,180,Physical,Psychokinetic high-tensile prehensile hair,Superhuman,Gifted,None
+88,Karnak,Karnak Mander-Azur,Marvel,Good,Male,Inhuman,Bald,Blue,Fair,Short,170,Martial Arts,Inherent perception of all structural flaws,Street,Genius,None
+89,Shang-Chi,Shang-Chi,Marvel,Good,Male,Human,Black,Brown,Fair,Average,178,Martial Arts,"Supreme master of Kung Fu, Chi amplification",Street,Gifted,Ten Rings
+90,Iron Fist,Danny Rand,Marvel,Good,Male,Human,Blond,Blue,Fair,Average,180,Martial Arts,"Chi-concentrated Iron Fist strike, Energy healing",Superhuman,Gifted,None
+91,Luke Cage,Carl Lucas,Marvel,Good,Male,Human Mutate,Bald,Brown,Dark,Tall,198,Physical,"Unbreakable titanium skin, Superhuman strength",Incalculable,Average,None
+92,Jessica Jones,Jessica Jones,Marvel,Good,Female,Human Mutate,Brown,Brown,Fair,Short,170,Physical,"Accelerated strength, Short flight, High durability",Superhuman,Gifted,None
+93,Squirrel Girl,Doreen Green,Marvel,Good,Female,Mutant,Brown,Brown,Fair,Short,160,Physical,"Squirrel communication, Knuckle spikes, Claws",Superhuman,Average,Nut Sack
+94,Spider-Woman,Jessica Drew,Marvel,Good,Female,Human Mutate,Black,Green,Fair,Short,175,Energy Projection,"Bio-electric venom blasts, Pheromone control",Superhuman,Gifted,Glider Wings
+95,Warpath,James Proudstar,Marvel,Good,Male,Mutant,Black,Brown,Fair,Massive,218,Physical,"Vibranium dagger mastery, Tremendous strength",Incalculable,Average,Vibranium Bowie Knives
+96,Domino,Neena Thurman,Marvel,Good,Female,Mutant,Black,Blue,Chalk White,Short,173,Reality Warping,"Subconscious probability manipulation (luck)",Street,Gifted,Dual Pistols
+97,Dazzler,Alison Blaire,Marvel,Good,Female,Mutant,Blond,Blue,Fair,Average,173,Energy Projection,Transduces sound vibrations into solid light,Street,Average,Roller Skates
+98,Havok,Alex Summers,Marvel,Good,Male,Mutant,Blond,Blue,Fair,Average,183,Energy Projection,Cosmic ambient radiation plasma discharge,Street,Gifted,Plasma Containment Suit
+99,Polaris,Lorna Dane,Marvel,Good,Female,Mutant,Green,Green,Fair,Short,170,Energy Projection,"Magnetic field manipulation, Flight via metal",Street,Gifted,None
+100,Gorr the God Butcher,Gorr,Marvel,Bad,Male,Alien,None,Black,Grey,Tall,196,Cosmic,"All-Black Necrosword creation, Immortality",Cosmic/Godlike,Average,All-Black the Necrosword
+101,Superman,"Clark Kent / Kal-El",DC,Good,Male,Kryptonian,Black,Blue,Fair,Tall,191,Physical,"Solar radiation absorption, Heat vision, Super speed",Cosmic/Godlike,Genius,None
+102,Batman,Bruce Wayne,DC,Good,Male,Human,Black,Blue,Fair,Average,188,Tech/Gadgets,"Peak human conditioning, Master detective, Martial arts",Street,Super-Genius,Utility Belt & Batarangs
+103,Wonder Woman,Diana Prince,DC,Good,Female,Demigoddess,Black,Blue,Fair,Average,183,Physical,"Divine blessings, Super strength, Flight, Invulnerable",Cosmic/Godlike,Gifted,Lasso of Truth
+104,The Flash,Barry Allen,DC,Good,Male,Human Mutate,Blond,Blue,Fair,Average,183,Physical,"Speed Force conduit, Time travel, Phasing",Enhanced,Genius,Flash Ring
+105,Green Lantern,Hal Jordan,DC,Good,Male,Human,Brown,Brown,Fair,Average,188,Energy Projection,"Solid light constructs via willpower, Flight",Cosmic/Godlike,Gifted,Green Lantern Ring
+106,Aquaman,Arthur Curry,DC,Good,Male,"Atlantean/Human",Blond,Blue,Fair,Average,185,Physical,"Marine telepathy, Ocean-depth durability, Swimming",Incalculable,Gifted,Trident of Atlan
+107,Martian Manhunter,J'onn J'onzz,DC,Good,Male,Martian,Bald,Red,Green,Massive,201,Psionic,"Telepathy, Shapeshifting, Intangibility, Vision",Cosmic/Godlike,Super-Genius,None
+108,Cyborg,Victor Stone,DC,Good,Male,Cyborg,Bald,Red,Dark/Metal,Tall,198,Tech/Gadgets,"Father Box integration, Technopathy, White noise",Incalculable,Super-Genius,Sonic Cannon
+109,Green Arrow,Oliver Queen,DC,Good,Male,Human,Blond,Green,Fair,Average,180,Martial Arts,"Master archer, Trick arrows, Expert hand-to-hand",Street,Gifted,Custom Bow
+110,Black Canary,Dinah Drake,DC,Good,Female,Human Mutate,Blond,Blue,Fair,Short,165,Energy Projection,"Canary Cry ultrasonic scream, Master martial artist",Street,Gifted,Motorcycle
+111,Nightwing,Dick Grayson,DC,Good,Male,Human,Black,Blue,Fair,Average,178,Martial Arts,"Master acrobat, Escrima fighter, Detective",Street,Gifted,Escrima Sticks
+112,Robin,Damian Wayne,DC,Good,Male,Human,Black,Green,Fair,Short,163,Martial Arts,"League of Assassins training, Master swordsman",Street,Genius,Katana
+113,Red Hood,Jason Todd,DC,Neutral,Male,Human,Black,Blue,Fair,Average,183,Martial Arts,"Lethal weapon mastery, Lazarus Pit enhanced",Enhanced,Gifted,Dual Handguns
+114,Batgirl,Barbara Gordon,DC,Good,Female,Human,Red,Blue,Fair,Short,170,Tech/Gadgets,"Genius hacker, Forensic investigator, Batarangs",Street,Super-Genius,Batarangs & Tonfas
+115,Supergirl,Kara Zor-El,DC,Good,Female,Kryptonian,Blond,Blue,Fair,Short,165,Physical,"Yellow sun empowerment, Freeze breath, Flight",Cosmic/Godlike,Gifted,None
+116,Superboy,Conner Kent,DC,Good,Male,Kryptonian Clone,Black,Blue,Fair,Average,175,Physical,"Tactile telekinesis, Kryptonian physicals",Incalculable,Gifted,None
+117,Zatanna,Zatanna Zatara,DC,Good,Female,Homo Magi,Black,Blue,Fair,Short,170,Magic/Mystic,"Backwards-speech incantation magic, Element control",Street,Gifted,Magic Wand
+118,John Constantine,John Constantine,DC,Neutral,Male,Human,Blond,Blue,Fair,Average,183,Magic/Mystic,"Occult rituals, Synchronicity wave travel, Demon blood",Street,Genius,Moonless Trenchcoat
+119,Shazam,Billy Batson,DC,Good,Male,Human Avatar,Black,Blue,Fair,Tall,193,Magic/Mystic,"Solomon wisdom, Hercules strength, Zeus lightning",Cosmic/Godlike,Omniscient,None
+120,Black Adam,Teth-Adam,DC,Neutral,Male,Human Avatar,Black,Brown,Tan,Tall,191,Magic/Mystic,"Egyptian pantheon powers, Lightning discharge",Cosmic/Godlike,Gifted,None
+121,Hawkman,Carter Hall,DC,Good,Male,"Human/Thanagarian",Brown,Brown,Fair,Average,185,Physical,"Nth metal flight wings, Reincarnation, Maces",Enhanced,Gifted,Nth Metal Mace
+122,Hawkgirl,Kendra Saunders,DC,Good,Female,"Human/Thanagarian",Red,Green,Fair,Short,175,Physical,"Nth metal disruption mace, Superhuman sight",Enhanced,Gifted,Nth Metal Flail
+123,Doctor Fate,Kent Nelson,DC,Good,Male,Human Avatar,Blond,Blue,Fair,Average,188,Magic/Mystic,"Lords of Order magic, Dimension shift, Ankh blasts",Cosmic/Godlike,Omniscient,Helmet of Fate
+124,Blue Beetle,Jaime Reyes,DC,Good,Male,Human,Black,Brown,Tan,Short,173,Tech/Gadgets,"Alien scarab armor, Plasma cannons, Flight",Incalculable,Gifted,Khaji Da Scarab
+125,Booster Gold,Michael Jon Carter,DC,Good,Male,Human,Blond,Blue,Fair,Tall,196,Tech/Gadgets,"Time sphere, Forcefield belt, Legion flight ring",Enhanced,Gifted,Skeets Robot
+126,Firestorm,"Ronnie Raymond / Martin Stein",DC,Good,Male,Metahuman,Flames,White,Fair,Average,188,Energy Projection,"Atomic transmutation, Matter rearrange, Fusion blasts",Incalculable,Super-Genius,None
+127,Atom,Ray Palmer,DC,Good,Male,Human,Brown,Brown,Fair,Average,183,Tech/Gadgets,"Subatomic mass reduction, White dwarf star belt",Street,Super-Genius,Bio-Belt
+128,Red Tornado,"Ulthoon / John Smith",DC,Good,Male,Android,Bald,Yellow,Red,Average,185,Energy Projection,"Aerokinesis, High-velocity cyclones, Android form",Incalculable,Super-Genius,None
+129,Plastic Man,Patrick O'Brian,DC,Good,Male,Human Mutate,Black,Blue,Fair,Average,185,Physical,"Infinite elasticity, Molecular density shift, Immune",Incalculable,Average,None
+130,Elongated Man,Ralph Dibny,DC,Good,Male,Human Mutate,Brown,Blue,Fair,Average,185,Physical,"Gingold-derived plasticity, Master detective",Street,Genius,None
+131,The Joker,Unknown,DC,Bad,Male,Human,Green,Green,Chalk White,Average,183,Tech/Gadgets,"Chemical toxins, Insane unpredictability",Street,Genius,Joker Venom
+132,Lex Luthor,Lex Luthor,DC,Bad,Male,Human,Bald,Green,Fair,Average,188,Tech/Gadgets,"Apex human intellect, Warsuit combat engineer",Incalculable,Super-Genius,Kryptonite Warsuit
+133,Harley Quinn,Harleen Quinzel,DC,Neutral,Female,Human Mutate,"Blond/Dye",Blue,Chalk White,Short,168,Physical,"Toxic immunity, Olympic acrobat, Chaos tactics",Street,Gifted,Oversized Mallet
+134,Poison Ivy,Pamela Isley,DC,Neutral,Female,Human Mutate,Red,Green,Green,Short,173,Energy Projection,"Chlorokinesis, Pheromone seduction, Lethal toxins",Enhanced,Genius,Plant Vines
+135,Catwoman,Selina Kyle,DC,Neutral,Female,Human,Black,Green,Fair,Short,170,Martial Arts,"Master burglar, Gymnastic prodigy, Whip mastery",Street,Gifted,Bullwhip
+136,Penguin,Oswald Cobblepot,DC,Bad,Male,Human,Black,Blue,Fair,Short,157,Tech/Gadgets,"Mob strategist, Weaponized umbrellas, Aviary tech",Street,Gifted,Trick Umbrellas
+137,Riddler,Edward Nygma,DC,Bad,Male,Human,Brown,Brown,Fair,Average,183,Tech/Gadgets,"Psychological riddles, Complex deathtraps",Street,Genius,Question Mark Cane
+138,Two-Face,Harvey Dent,DC,Bad,Male,Human,Brown,Blue,Half-Scarred,Average,183,Physical,"Coin-toss psychosis, Firearms, Legal tactician",Street,Gifted,Double-Headed Coin
+139,Bane,Dorrance,DC,Bad,Male,Human,Brown,Brown,Fair,Massive,203,Physical,"Venom steroid infusion, Tactician intellect, Claws",Incalculable,Genius,Venom Injector
+140,Scarecrow,Jonathan Crane,DC,Bad,Male,Human,Brown,Blue,Fair,Tall,191,Tech/Gadgets,"Fear toxin synthesizer, Scythe combat, Phobias",Street,Genius,Fear Gas Diffuser
+141,Mr. Freeze,Victor Fries,DC,Neutral,Male,Human,Bald,Red,Pale Blue,Average,183,Tech/Gadgets,"Cryogenic freeze gun, Sub-zero cryo-suit",Enhanced,Genius,Cryo-Gun
+142,Ra's al Ghul,Ra's al Ghul,DC,Bad,Male,Human,"Black/Grey",Green,Fair,Average,188,Martial Arts,"Centuries of combat via Lazarus Pits, Master ninja",Enhanced,Super-Genius,Scimitar
+143,Deathstroke,Slade Wilson,DC,Neutral,Male,Human Mutate,White,Blue,Fair,Tall,193,Physical,"Promethium sword, 90% brain capacity, Regenerate",Enhanced,Genius,Promethium Blade
+144,Deadshot,Floyd Lawton,DC,Neutral,Male,Human,Brown,Brown,Fair,Average,185,Martial Arts,"Flawless ballistic aim, Wrist-mounted machineguns",Street,Gifted,Wrist Cannons
+145,Darkseid,Uxas,DC,Bad,Male,New God,None,Red,Grey Stone,Massive,267,Cosmic,"Omega Beams, Avatar creation, Absolute dominion",Cosmic/Godlike,Super-Genius,Omega Effect
+146,Brainiac,Vril Dox,DC,Bad,Male,"Coluan/Cyborg",None,Pink,Green,Tall,198,Tech/Gadgets,"12th-level intellect, Shrink rays, Tendrils",Incalculable,Super-Genius,Skull Ship
+147,Sinestro,Thaal Sinestro,DC,Neutral,Male,Korugarian,Black,Yellow,Magenta,Tall,201,Energy Projection,"Fear-based yellow light constructs, Flight",Cosmic/Godlike,Super-Genius,Yellow Power Ring
+148,General Zod,Dru-Zod,DC,Bad,Male,Kryptonian,Black,Blue,Fair,Average,191,Physical,"Solar enhanced combatant, Kryptonian military general",Cosmic/Godlike,Genius,None
+149,Bizarro,Bizarro,DC,Neutral,Male,Kryptonian Clone,Black,Black,Chalk White,Tall,191,Physical,"Flame breath, Freeze vision, Reverse Superman logic",Cosmic/Godlike,Average,None
+150,Doomsday,Doomsday,DC,Bad,Male,Prehistoric Kryptonian,None,Red,Grey/Bone,Massive,244,Physical,"Adaptive reactive evolution, Bone spikes, Rage",Incalculable,Average,Bone Protrusions
+151,Atrocitus,Atros,DC,Bad,Male,Ryut Alien,None,Yellow,Red,Massive,213,Energy Projection,"Napalm blood vomit, Red rage light constructs",Cosmic/Godlike,Gifted,Red Lantern Ring
+152,Larfleeze,Larfleeze,DC,Neutral,Male,Ogdru,None,Purple,Orange,Tall,198,Energy Projection,"Orange avarice light constructs, Corpses summon",Cosmic/Godlike,Average,Orange Battery
+153,Saint Walker,Bro'Dee Walker,DC,Good,Male,Astonian,None,White,Blue,Average,183,Energy Projection,"Blue hope constructs, Green ring overcharging",Cosmic/Godlike,Gifted,Blue Power Ring
+154,Star Sapphire,Carol Ferris,DC,Neutral,Female,Human,Black,Blue,Fair,Short,170,Energy Projection,"Violet love constructs, Crystal encasement",Cosmic/Godlike,Gifted,Violet Star Ring
+155,Kilowog,Kilowog,DC,Good,Male,Bolovaxian,None,Red,Pink,Massive,234,Energy Projection,"Power ring mastery, Bolovax raw brute strength",Incalculable,Genius,Green Lantern Ring
+156,Guy Gardner,Guy Gardner,DC,Good,Male,"Human/Vuldarian",Red,Blue,Fair,Average,188,Energy Projection,"Willpower constructs, Vuldarian weapon shifting",Cosmic/Godlike,Average,Power Ring
+157,John Stewart,John Stewart,DC,Good,Male,Human,Bald,Brown,Dark,Average,188,Energy Projection,"Architectural solid light engineering, Sniping",Cosmic/Godlike,Genius,Green Lantern Ring
+158,Kyle Rayner,Kyle Rayner,DC,Good,Male,Human,Black,Green,Fair,Average,180,Energy Projection,"Artistic light constructs, White Lantern master",Cosmic/Godlike,Gifted,White Power Ring
+159,Wally West,Wally West,DC,Good,Male,Human Mutate,Red,Green,Fair,Average,183,Physical,"Fastest Flash, Speed theft, Dimension traversing",Enhanced,Gifted,None
+160,Reverse-Flash,Eobard Thawne,DC,Bad,Male,Human Mutate,Blond,Blue,Fair,Average,180,Physical,"Negative Speed Force, Time paradox immortality",Enhanced,Super-Genius,Tachyon Device
+161,Hunter Zolomon,Hunter Zolomon,DC,Bad,Male,Human Mutate,Brown,Red,Fair,Average,185,Physical,"Individual timeline acceleration (relative speed)",Enhanced,Gifted,None
+162,Captain Cold,Leonard Snart,DC,Neutral,Male,Human,Brown,Brown,Fair,Average,183,Tech/Gadgets,"Absolute Zero cold gun, Cyclical tactical mind",Street,Genius,Cold Gun
+163,Heat Wave,Mick Rory,DC,Neutral,Male,Human,Bald,Blue,Fair,Average,180,Tech/Gadgets,"Custom flamethrower, Absolute heat stream",Street,Average,Flamethrower
+164,Gorilla Grodd,Grodd,DC,Bad,Male,Gorilla,Black,Yellow,Fur,Massive,201,Psionic,"Simian brute mass, Alpha-telepathy, Mind blast",Incalculable,Super-Genius,None
+165,King Shark,Nanaue,DC,Neutral,Male,Demigod Shark,None,Black,Grey,Massive,221,Physical,"Deep sea pressure durability, Massive jaws, Claws",Incalculable,Average,None
+166,Killer Croc,Waylon Jones,DC,Neutral,Male,Metahuman,None,Yellow,Green Scales,Massive,229,Physical,"Reptilian scale armor, Claws, Regenerating teeth",Superhuman,Average,None
+167,Clayface,Basil Karlo,DC,Bad,Male,Human Mutate,None,Yellow,Brown Clay,Massive,244,Physical,"Malleable clay morphing, Size shifting, Disguise",Incalculable,Average,None
+168,Man-Bat,Kirk Langstrom,DC,Neutral,Male,Human Mutate,Brown,Red,Fur,Tall,208,Physical,"Chiropteran flight wings, Echolocation bursts",Superhuman,Genius,None
+169,Solomon Grundy,Cyrus Gold,DC,Neutral,Male,Zombie Mutate,White,Grey,Chalk White,Massive,239,Physical,"Undead resurrection, Immense brute resilience",Incalculable,Average,None
+170,Lobo,Lobo,DC,Neutral,Male,Czarnian,Black,Red,Chalk White,Massive,229,Physical,"Unholy regeneration factor, Immortality, Tracker",Cosmic/Godlike,Genius,Hook on a Chain
+171,Swamp Thing,Alec Holland,DC,Good,Male,Plant Elemental,Vegetation,Red,Moss Green,Massive,213,Physical,"Avatar of the Green, Regrowth from plant matter",Incalculable,Genius,None
+172,Etrigan the Demon,"Etrigan / Jason Blood",DC,Neutral,Male,Demon,Bald,Red,Yellow,Tall,193,Magic/Mystic,"Hellfire breathing, Demonic sorcery, Rhymes",Incalculable,Gifted,Hellfire
+173,Raven,Rachel Roth,DC,Good,Female,"Human/Demon","Black/Indigo",Indigo,Pale,Short,165,Magic/Mystic,"Soul-Self projection, Empathy, Dark magic",Street,Gifted,Chakra Stone
+174,Starfire,Koriand'r,DC,Good,Female,Tamaranean,Auburn,Green,Orange,Tall,193,Energy Projection,"Ultraviolet starbolt emissions, Solar flight",Incalculable,Gifted,None
+175,Beast Boy,Garfield Logan,DC,Good,Male,Human Mutate,Green,Green,Green,Short,173,Physical,Terrestrial and alien animal shapeshifting,Superhuman,Average,None
+176,Donna Troy,Donna Troy,DC,Good,Female,Amazon,Black,Blue,Fair,Short,175,Physical,"Amazonian god physiology, Lasso of Persuasion",Cosmic/Godlike,Gifted,Lasso of Persuasion
+177,Arsenal,Roy Harper,DC,Good,Male,Human,Red,Hazel,Fair,Average,180,Martial Arts,"Trick bow shooting, Improvised projectile master",Street,Gifted,Compound Bow
+178,Huntress,Helena Bertinelli,DC,Good,Female,Human,Black,Brown,Fair,Short,175,Martial Arts,"Crossbow lethality, Gotham underground combat",Street,Gifted,Hand Crossbow
+179,Spectre,"Astaroth / Jim Corrigan",DC,Good,Male,Cosmic Entity,None,White,Chalk White,Variable,188,Cosmic,"Divine wrath embodiment, Omnipotent magic reality",Cosmic/Godlike,Omniscient,None
+180,Deadman,Boston Brand,DC,Good,Male,Ghost,None,White,Pale White,Average,183,Magic/Mystic,"Intangible possession of living hosts, Flight",Street,Average,None
+181,Vixen,Mari McCabe,DC,Good,Female,Human,Black,Amber,Dark,Short,175,Physical,Totem mimicry of animal kingdom attributes,Superhuman,Gifted,Tantu Totem
+182,Plastic Man (Terrifics),Patrick O'Brian,DC,Good,Male,Human Mutate,Black,Blue,Fair,Average,185,Physical,Limitless bodily stretching and contouring,Incalculable,Average,None
+183,Mister Miracle,Scott Free,DC,Good,Male,New God,Black,Blue,Fair,Average,183,Physical,"Escapology supremacy, Mother Box interfacing",Superhuman,Super-Genius,Aero-Discs
+184,Big Barda,Barda Free,DC,Good,Female,New God,Black,Blue,Fair,Tall,198,Physical,"Apokoliptian combat training, Immense strength",Incalculable,Gifted,Mega-Rod
+185,Orion,Orion,DC,Good,Male,New God,Red,Blue,Fair,Average,185,Physical,"Astro-Force harnessing, Wrath of the New Gods",Cosmic/Godlike,Gifted,Astro-Harness
+186,Steppenwolf,Steppenwolf,DC,Bad,Male,New God,None,Red,Grey,Massive,244,Physical,"Apokolips military commander, Electro-axe power",Incalculable,Gifted,Electro-Axe
+187,Granny Goodness,Granny Goodness,DC,Bad,Female,New God,Grey,Blue,Fair,Average,178,Physical,"Furies conditioning, Pain amplification, Torture",Superhuman,Genius,Torment Staff
+188,Metron,Metron,DC,Neutral,Male,New God,Black,White,Fair,Average,185,Cosmic,"Repository of universal omniscience, Dimension pass",Street,Omniscient,Mobius Chair
+189,Static,Virgil Hawkins,DC,Good,Male,Metahuman,Black,Brown,Dark,Short,170,Energy Projection,"Electromagnetism generation, Levitation disc",Street,Genius,Static Saucer
+190,Captain Atom,Nathaniel Adam,DC,Good,Male,Human Mutate,Silver,Red,Silver Metal,Tall,193,Energy Projection,"Quantum Field manipulation, Energy blasts, Transmute",Cosmic/Godlike,Gifted,Dilustel Skin
+191,Major Force,Clifford Zmeck,DC,Bad,Male,Human Mutate,Silver,Red,Silver Metal,Tall,196,Energy Projection,"Dark quantum manipulation, High durability",Cosmic/Godlike,Average,None
+192,Black Manta,David Hyde,DC,Bad,Male,Human,Bald,Brown,Dark,Average,188,Tech/Gadgets,"Armor with optic heat lasers, Submersible flight",Enhanced,Genius,Manta Sub-Suit
+193,Ocean Master,Orm Marius,DC,Bad,Male,Atlantean,Black,Blue,Fair,Average,180,Magic/Mystic,"Hydrokinesis, Lightning via trident, Combat",Incalculable,Gifted,Trident of Neptune
+194,Mera,Mera,DC,Good,Female,Xebellian,Red,Blue,Fair,Short,175,Physical,"Hard-water manipulation, Dehydration, Aquatic",Incalculable,Gifted,None
+195,Aqualad,Kaldur'ahm,DC,Good,Male,Atlantean,Bald,Brown,Dark,Average,178,Magic/Mystic,"Water-bearer energy constructs, Bio-electricity",Superhuman,Gifted,Water Bearers
+196,Wonder Girl,Cassie Sandsmark,DC,Good,Female,Demigoddess,Blond,Blue,Fair,Short,165,Physical,"Zeus lightning lasso, Divine flight, Durability",Incalculable,Gifted,Silent Armor
+197,Starman,Jack Knight,DC,Good,Male,Human,Black,Brown,Fair,Average,185,Energy Projection,Cosmic rod flight and photon blast emission,Street,Gifted,Cosmic Staff
+198,Midnighter,Lucas Trent,DC,Neutral,Male,Cyborg Mutate,Black,Blue,Fair,Average,185,Physical,Battle computer brain (predicts million outcomes),Enhanced,Genius,Combat Tonfas
+199,Apollo,Andrew Pulaski,DC,Good,Male,Human Mutate,White,Gold,Golden,Tall,193,Energy Projection,"Solar energy absorption, Photonic plasma release",Cosmic/Godlike,Gifted,None
+200,Anti-Monitor,Mobius,DC,Bad,Male,Cosmic Entity,None,Yellow,Armored Dark,Massive,853,Cosmic,"Anti-matter universe consumption, Antimatter beams",Cosmic/Godlike,Super-Genius,Antimatter Armor
