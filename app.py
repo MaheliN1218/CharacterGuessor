@@ -22,11 +22,11 @@ app.add_middleware(
 CSV_PATH = "character.csv"
 
 CHOICE_WEIGHTS = {
-    1: 1.0,  # Yes
+    1: 0.95,  # Yes
     2: 0.8,  # Probably
     3: 0.5,  # Don't know
     4: 0.2,  # Probably not
-    5: 0.0,  # No
+    5: 0.05,  # No
 }
 
 DISPLAY_NAMES = {
