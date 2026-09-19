@@ -80,31 +80,41 @@ When 3 guesses fail:
 ## ⚙️ How to Run Locally
 
 ### 1. Clone this repository
+```text
 git clone [https://github.com/MaheliN1218/CharacterGuessor.git](https://github.com/MaheliN1218/CharacterGuessor.git)
 cd CharacterGuessor
-
+```
 ### 2. Create and activate a virtual environment
+```text
 python -m venv .venv
-
+```
 Windows:
+```text
 .venv\Scripts\activate
-
+```
 Mac/Linux:
+```text
 source .venv/bin/activate
+```
 
 ### 3. Install packages
+```text
 pip install -r requirements.txt
-
+```
 ### 4. Configure Database and Seed
 Set your PostgreSQL connection string:
+```text
 $env:DATABASE_URL="your-postgresql-connection-string"
+```
 
 Run migrations:
+```text
 python mig.py
-
+```
 ### 5. Launch the app
+```text
 uvicorn main:app --reload
-
+```
 Open http://localhost:8000 in your browser.
 
 Live site- https://character-guessor-8wky-6klomdb5f-mahelin1218.vercel.app/
