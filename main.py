@@ -208,7 +208,7 @@ def submit_answer(req: AnswerRequest):
     top_char_name = GLOBAL_STATE["character_names"][top_idx]
 
     # Trigger guess when confidence >= 70% or at question 20
-    if top_prob >= 0.70 or session["question_count"] >= 20:
+    if top_prob >= 0.90 or session["question_count"] >= 20:
         session["last_guess"] = top_char_name
         return {
             "is_guess": True,
