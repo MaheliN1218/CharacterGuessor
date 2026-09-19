@@ -29,7 +29,7 @@ The interactive web dashboard lets you:
   - **Powers & Archetypes:** Flight, super strength, healing factor, energy blasts, magic/mystic, tech gadgets, martial arts mastery.
 
 ## 🏗️ Repository Structure
-
+```text
 CharacterGuesser/
 ├── static/
 │   └── index.html          # Clean dark-mode UI with confidence gauges
@@ -42,7 +42,7 @@ CharacterGuesser/
 ├── vercel.json             # Vercel serverless build and routing manifest
 ├── .gitignore              # Ignored local environments and artifacts
 └── README.md               # Technical project documentation
-
+```
 ## 📋 What Was Built
 
 ### 1. Bayesian Probability Update Pipeline
