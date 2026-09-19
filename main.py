@@ -1,11 +1,11 @@
-import uuid
 from contextlib import asynccontextmanager
+from pathlib import Path
+import uuid
 
 from database import Base, engine, get_db
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
-from fastapi.staticfiles import StaticFiles
 import model
 import numpy as np
 from pydantic import BaseModel
@@ -19,12 +19,10 @@ GLOBAL_STATE = {
     "matrix": np.empty((0, 0)),
 }
 
-
 SESSIONS = {}
 
 
 def reload_matrix_from_db(db: Session):
-
     chars = db.query(model.Character).order_by(model.Character.id).all()
     questions = db.query(model.Question).order_by(model.Question.id).all()
 
@@ -127,15 +125,12 @@ class LearnRequest(BaseModel):
     correct_name: str
 
 
-
-from pathlib import Path
-
 BASE_DIR = Path(__file__).resolve().parent
 
 
 @app.get("/")
 def serve_index():
-    return FileResponse(BASE_DIR /"static"/ "index.html")
+    return FileResponse(BASE_DIR / "static" / "index.html")
 
 
 @app.post("/start")
@@ -158,8 +153,10 @@ def start_game():
         "probs": initial_probs,
         "asked_q_indices": [first_q_idx],
         "question_count": 1,
+        "guess_count": 0,
         "rejected_characters": [],
         "last_guess": None,
+        "user_answers": {},
     }
 
     q_data = GLOBAL_STATE["questions"][first_q_idx]
@@ -178,10 +175,9 @@ def submit_answer(req: AnswerRequest):
 
     session = SESSIONS[req.session_id]
     current_q_idx = session["asked_q_indices"][-1]
+    current_q_data = GLOBAL_STATE["questions"][current_q_idx]
     probs = session["probs"]
     matrix = GLOBAL_STATE["matrix"]
-
-    q_column = matrix[:, current_q_idx]
 
     # Fuzzy belief mapping
     weight_map = {
@@ -193,6 +189,11 @@ def submit_answer(req: AnswerRequest):
     }
     user_weight = weight_map.get(req.choice, 0.50)
 
+    # Save choice value for learning later
+    trait_value_map = {1: 1.0, 2: 1.0, 3: 0.5, 4: 0.0, 5: 0.0}
+    session["user_answers"][current_q_data["id"]] = trait_value_map.get(req.choice, 0.5)
+
+    q_column = matrix[:, current_q_idx]
     likelihood = (q_column * user_weight) + ((1.0 - q_column) * (1.0 - user_weight))
     unnormalized = probs * likelihood
     total = np.sum(unnormalized)
@@ -206,7 +207,8 @@ def submit_answer(req: AnswerRequest):
     top_prob = float(probs[top_idx])
     top_char_name = GLOBAL_STATE["character_names"][top_idx]
 
-    if top_prob >= 0.75 or session["question_count"] >= 20:
+    # Trigger guess when confidence >= 70% or at question 20
+    if top_prob >= 0.70 or session["question_count"] >= 20:
         session["last_guess"] = top_char_name
         return {
             "is_guess": True,
@@ -248,6 +250,11 @@ def reject_guess(req: RejectGuessRequest):
     session = SESSIONS[req.session_id]
     rejected_name = session.get("last_guess")
 
+    session["guess_count"] += 1
+
+    if session["guess_count"] >= 3:
+        return {"can_learn": True}
+
     if rejected_name in GLOBAL_STATE["character_names"]:
         char_idx = GLOBAL_STATE["character_names"].index(rejected_name)
         session["probs"][char_idx] = 0.0
@@ -258,15 +265,36 @@ def reject_guess(req: RejectGuessRequest):
 
     session["rejected_characters"].append(rejected_name)
 
-    if np.max(session["probs"]) <= 0.001 or session["question_count"] >= 25:
+    sorted_indices = np.argsort(session["probs"])[::-1]
+    top_idx = sorted_indices[0]
+    top_prob = float(session["probs"][top_idx])
+
+    if top_prob <= 0.001:
         return {"can_learn": True}
+
+    if top_prob >= 0.65:
+        next_candidate = GLOBAL_STATE["character_names"][top_idx]
+        session["last_guess"] = next_candidate
+        return {
+            "can_learn": False,
+            "is_guess": True,
+            "name": next_candidate,
+            "confidence": round(top_prob * 100, 1),
+        }
 
     next_q_idx = select_best_question(
         session["probs"], asked_q_indices=set(session["asked_q_indices"])
     )
 
     if next_q_idx is None:
-        return {"can_learn": True}
+        next_candidate = GLOBAL_STATE["character_names"][top_idx]
+        session["last_guess"] = next_candidate
+        return {
+            "can_learn": False,
+            "is_guess": True,
+            "name": next_candidate,
+            "confidence": round(top_prob * 100, 1),
+        }
 
     session["asked_q_indices"].append(next_q_idx)
     session["question_count"] += 1
@@ -288,6 +316,9 @@ def learn_character(req: LearnRequest, db: Session = Depends(get_db)):
     session = SESSIONS[req.session_id]
     cleaned_name = req.correct_name.strip()
 
+    if not cleaned_name:
+        raise HTTPException(status_code=400, detail="Character name cannot be blank.")
+
     char_record = (
         db.query(model.Character)
         .filter(model.Character.name.ilike(cleaned_name))
@@ -298,24 +329,32 @@ def learn_character(req: LearnRequest, db: Session = Depends(get_db)):
         db.add(char_record)
         db.flush()
 
-    for q_idx in session["asked_q_indices"]:
-        q_meta = GLOBAL_STATE["questions"][q_idx]
+    user_answers = session.get("user_answers", {})
+    all_questions = db.query(model.Question).all()
+
+    for q in all_questions:
+        val = user_answers.get(q.id, 0.0)
+
         existing_trait = (
             db.query(model.CharacterTrait)
-            .filter_by(character_id=char_record.id, question_id=q_meta["id"])
+            .filter_by(character_id=char_record.id, question_id=q.id)
             .first()
         )
         if not existing_trait:
             db.add(
                 model.CharacterTrait(
                     character_id=char_record.id,
-                    question_id=q_meta["id"],
-                    value=0.5,
+                    question_id=q.id,
+                    value=float(val),
                 )
             )
+        else:
+            existing_trait.value = float(val)
 
     db.commit()
     reload_matrix_from_db(db)
+
+    del SESSIONS[req.session_id]
 
     return {
         "status": "success",
