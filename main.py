@@ -128,9 +128,14 @@ class LearnRequest(BaseModel):
 
 
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+
+
 @app.get("/")
 def serve_index():
-    return FileResponse("static/index.html")
+    return FileResponse(BASE_DIR / "index.html")
 
 
 @app.post("/start")
