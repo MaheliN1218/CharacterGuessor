@@ -18,7 +18,7 @@ class Question(Base):
     question: Mapped[str] = mapped_column(String(500), unique=True, index=True, nullable=False)
     trait_key: Mapped[str] = mapped_column(String(100), unique=True, index=True, nullable=False)
 
-    charactr_traits: Mapped[list["CharacterTrait"]] = relationship( back_populates="question")
+    character_traits: Mapped[list["CharacterTrait"]] = relationship( back_populates="question")
 
 class CharacterTrait(Base):
     __tablename__ = 'character_trait'
